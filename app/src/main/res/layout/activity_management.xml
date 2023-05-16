@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_gravity="center"
-    tools:context=".UserDataV">
+    tools:context=".Management">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -21,23 +21,20 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Información:"
+                android:text="Crear categoria"
                 android:textSize="20dp"
-                android:gravity="center"
                 android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_marginTop="30dp"
-                android:id="@+id/first_name_input_layout"
+                android:id="@+id/categories_input_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:enabled="false"
-                android:textColorHint="#000"
-                android:hint="Nombre">
+                android:hint="Nombre de la categoría">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/first_name_edit_text"
+                    android:id="@+id/categories_edit_text"
                     android:layout_width="match_parent"
                     android:textColorHint="#000"
                     android:textColor="#000"
@@ -47,16 +44,14 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_marginTop="10dp"
-                android:id="@+id/last_name_input_layout"
+                android:id="@+id/urlcate_input_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:enabled="false"
-                android:textColorHint="#000"
-                android:hint="Apellidos">
+                android:hint="Url de la imagen">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/last_name_edit_text"
+                    android:id="@+id/urlcate_edit_text"
                     android:layout_width="match_parent"
                     android:textColorHint="#000"
                     android:textColor="#000"
@@ -65,97 +60,26 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_marginTop="10dp"
-                android:id="@+id/email_input_layout"
+                android:id="@+id/type_input_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:enabled="false"
-                android:textColorHint="#000"
-                android:hint="Correo">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/email_edit_text"
-                    android:layout_width="match_parent"
-                    android:textColorHint="#000"
-                    android:textColor="#000"
-                    android:layout_height="wrap_content" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
                 android:layout_marginTop="10dp"
-                android:id="@+id/doc_input_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:enabled="false"
-                android:textColorHint="#000"
-                android:hint="Documento">
+                app:endIconContentDescription="Deslegar"
+                app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                app:endIconMode="custom">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/doc_edit_text"
+
+                <AutoCompleteTextView
+                    android:id="@+id/typeCompleteTextView"
                     android:layout_width="match_parent"
-                    android:textColorHint="#000"
-                    android:textColor="#000"
-                    android:layout_height="wrap_content" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_marginTop="10dp"
-                android:id="@+id/address_input_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:enabled="false"
-                android:textColorHint="#000"
-                android:hint="Dirección">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/address_edit_text"
-                    android:layout_width="match_parent"
-                    android:textColorHint="#000"
-                    android:textColor="#000"
-                    android:layout_height="wrap_content" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_marginTop="10dp"
-                android:id="@+id/depart_input_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:enabled="false"
-                android:textColorHint="#000"
-                android:hint="Departamento">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/depart_edit_text"
-                    android:layout_width="match_parent"
-                    android:textColorHint="#000"
-                    android:textColor="#000"
-                    android:layout_height="wrap_content" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_marginTop="10dp"
-                android:id="@+id/ciudad_input_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:enabled="false"
-                android:textColorHint="#000"
-                android:hint="Ciudad">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/ciudad_edit_text"
-                    android:layout_width="match_parent"
-                    android:textColorHint="#000"
-                    android:textColor="#000"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="Tipo"
+                    android:inputType="none"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textSize="17dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -166,7 +90,113 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:text="Modificar datos" />
+                android:text="Crear Categoría" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Crear subcategoría"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="30dp"
+                android:id="@+id/name_subcategories_input_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nombre de la subcategoría">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/name_subcategories_edit_text"
+                    android:layout_width="match_parent"
+                    android:textColorHint="#000"
+                    android:textColor="#000"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:id="@+id/urlsubca_input_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Url de la imagen">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/urlsubca_edit_text"
+                    android:layout_width="match_parent"
+                    android:textColorHint="#000"
+                    android:textColor="#000"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/type_second_input_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:endIconContentDescription="Deslegar"
+                app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                app:endIconMode="custom">
+
+
+                <AutoCompleteTextView
+                    android:id="@+id/typeSecondCompleteTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="Tipo"
+                    android:inputType="none"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textSize="17dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/typecatego_input_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:enabled="false"
+                app:endIconContentDescription="Deslegar"
+                app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                app:endIconMode="custom">
+
+
+                <AutoCompleteTextView
+                    android:id="@+id/typeCategoCompleteTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="Selecciones una subcategoría"
+                    android:inputType="none"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textSize="17dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:layout_marginTop="10dp"
+                android:id="@+id/subcatego_button"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="Crear subcategoría" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Crear "
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

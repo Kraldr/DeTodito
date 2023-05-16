@@ -12,4 +12,11 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
+    <style name="CustomOutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <!-- Cambia el color del borde y del hint -->
+        <item name="boxStrokeColor">#007ACC</item>
+        <item name="hintTextColor">#007ACC</item>
+    </style>
+
+
 </resources>

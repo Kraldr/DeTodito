@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:layout_gravity="center"
+    android:orientation="vertical"
     tools:context=".Signup">
 
     <ScrollView
@@ -20,17 +21,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="Registro:"
                 android:textSize="20dp"
-                android:gravity="center"
                 android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_marginTop="30dp"
                 android:id="@+id/first_name_input_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
                 android:hint="Nombre">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -41,11 +42,11 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_marginTop="10dp"
                 android:id="@+id/last_name_input_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:hint="Apellidos">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -56,11 +57,11 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_marginTop="10dp"
                 android:id="@+id/email_input_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:hint="Correo">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -71,11 +72,11 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_marginTop="10dp"
                 android:id="@+id/celular_input_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:hint="Celular">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -86,11 +87,11 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_marginTop="10dp"
                 android:id="@+id/doc_input_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:hint="Documento">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -101,11 +102,11 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_marginTop="10dp"
                 android:id="@+id/address_input_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:hint="Dirección">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -116,11 +117,60 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/departamento_input_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                app:endIconContentDescription="Deslegar"
+                app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                app:endIconMode="custom">
+
+
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="Departamento"
+                    android:inputType="none"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textSize="17dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ciudad_input_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:enabled="false"
+                app:endIconContentDescription="Deslegar"
+                app:endIconDrawable="@drawable/baseline_arrow_drop_down_24"
+                app:endIconMode="custom">
+
+
+                <AutoCompleteTextView
+                    android:id="@+id/ciudadautoCompleteTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hint="Ciudad"
+                    android:inputType="none"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textSize="17dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/password_input_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:hint="Contraseña">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -131,11 +181,11 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_marginTop="10dp"
                 android:id="@+id/passwordConfirm_input_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:hint="Confirmar contraseña">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -145,13 +195,14 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+
             <Button
-                android:layout_marginTop="10dp"
                 android:id="@+id/register_button"
                 style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
+                android:layout_marginTop="10dp"
                 android:text="Registrarme" />
 
         </LinearLayout>

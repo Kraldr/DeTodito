@@ -1,6 +1,8 @@
 package com.example.detodito
 
 import android.content.Context
+import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -22,6 +24,11 @@ class UserDataV : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDatauservBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.statusBarColor =
+                Color.parseColor("#FFFFFF") // Reemplaza #FF0000 con el color deseado
+        }
 
         val (myUID, state) = loadData()
 
@@ -57,6 +64,8 @@ class UserDataV : AppCompatActivity() {
                     binding.emailEditText.setText(userData.userData.email)
                     binding.docEditText.setText(userData.userData.doc)
                     binding.addressEditText.setText(userData.userData.address)
+                    binding.departEditText.setText(userData.userData.dept)
+                    binding.ciudadEditText.setText(userData.userData.ciudad)
                 })
             }
         })

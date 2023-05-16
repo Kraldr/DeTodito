@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.detodito.Adapters.ListRecentAdapter
 import com.example.detodito.Adapters.RecentAdapter
 import com.example.detodito.databinding.ActivitySearchBinding
 
@@ -30,13 +31,10 @@ class Search : AppCompatActivity() {
         dataAll.add("Tres")
         dataAll.add("Cuatro")
         dataAll.add("Cinco")
-        dataAll.add("Seis")
-        dataAll.add("Siete")
-        dataAll.add("Ocho")
-        dataAll.add("Nueve")
-        dataAll.add("Diez")
 
         initRecyclerViewPopular(dataAll)
+        initRecyclerViewRecent(dataAll)
+        initRecyclerViewTop(dataAll)
 
     }
 
@@ -52,6 +50,30 @@ class Search : AppCompatActivity() {
                 scrollToPosition(8)
                 adapter = RecentAdapter(data, applicationContext)
                 //addItemDecoration(HomeFragment.SpacesItemDecoration(8))
+            }
+        })
+
+    }
+
+    private fun initRecyclerViewRecent(data: MutableList<String>) {
+        val refresh = Handler(Looper.getMainLooper())
+        refresh.post(kotlinx.coroutines.Runnable {
+            binding.recyViewRecent.apply {
+                layoutManager = LinearLayoutManager(applicationContext)
+                val adapter = ListRecentAdapter(data, applicationContext)
+                this.adapter = adapter
+            }
+        })
+
+    }
+
+    private fun initRecyclerViewTop(data: MutableList<String>) {
+        val refresh = Handler(Looper.getMainLooper())
+        refresh.post(kotlinx.coroutines.Runnable {
+            binding.recyViewTop.apply {
+                layoutManager = LinearLayoutManager(applicationContext)
+                val adapter = ListRecentAdapter(data, applicationContext)
+                this.adapter = adapter
             }
         })
 

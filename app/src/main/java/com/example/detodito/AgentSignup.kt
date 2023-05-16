@@ -16,9 +16,11 @@ import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
 import com.example.detodito.data.Departament
 import com.example.detodito.data.dataRegis
+import com.example.detodito.databinding.ActivityAgentSignupBinding
 import com.example.detodito.databinding.ActivitySignupBinding
 import com.google.gson.Gson
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -26,18 +28,17 @@ import okio.IOException
 import org.json.JSONObject
 import org.jsoup.Jsoup
 
-class Signup : AppCompatActivity() {
+class AgentSignup : AppCompatActivity() {
 
-    lateinit var binding: ActivitySignupBinding
-    val job = Job()
-    val coroutineScope = CoroutineScope(Dispatchers.Main + job)
-    var department = ""
-    private lateinit var dataP:Departament
-    lateinit var dialog: AlertDialog
+    private lateinit var binding: ActivityAgentSignupBinding
+    private lateinit var dataP: Departament
+    private var department = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySignupBinding.inflate(layoutInflater)
+        setContentView(R.layout.activity_agent_signup)
+
+        binding = ActivityAgentSignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -45,25 +46,15 @@ class Signup : AppCompatActivity() {
                 Color.parseColor("#FFFFFF")
         }
 
-        val url = "http://10.0.2.2:3000/signup"
+        val url = "http://10.0.2.2:3000/agentsignup"
         val jsonBody = JSONObject()
 
         val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_loading, null)
 
-        dialog = AlertDialog.Builder(this)
+        val dialog = AlertDialog.Builder(this)
             .setView(dialogView)
             .setCancelable(false)
             .create()
-
-        binding.ciudadInputLayout.setEndIconOnClickListener {
-            val departamentosEncontrados = dataP.filter { it.departamento == department }
-
-            val ciudades = mutableListOf<String>()
-            for (department in departamentosEncontrados[0].ciudades) {
-                ciudades.add(department)
-            }
-            mostrarListaDepartamentos(ciudades, 2)
-        }
 
         binding.departamentoInputLayout.setEndIconOnClickListener {
             lifecycleScope.launch(Dispatchers.IO) {
@@ -90,6 +81,16 @@ class Signup : AppCompatActivity() {
             }
         }
 
+        binding.ciudadInputLayout.setEndIconOnClickListener {
+            val departamentosEncontrados = dataP.filter { it.departamento == department }
+
+            val ciudades = mutableListOf<String>()
+            for (department in departamentosEncontrados[0].ciudades) {
+                ciudades.add(department)
+            }
+            mostrarListaDepartamentos(ciudades, 2)
+        }
+
         binding.registerButton.setOnClickListener {
             dialog.show()
             jsonBody.put("email", binding.emailEditText.text.toString())
@@ -101,7 +102,8 @@ class Signup : AppCompatActivity() {
             jsonBody.put("address", binding.addressEditText.text.toString())
             jsonBody.put("dept", binding.autoCompleteTextView.text.toString())
             jsonBody.put("ciudad", binding.ciudadautoCompleteTextView.text.toString())
-            jsonBody.put("type", "Usuario")
+            jsonBody.put("type", "Agente")
+            jsonBody.put("rate", "")
             val requestBody =
                 jsonBody.toString().toRequestBody("application/json".toMediaTypeOrNull())
 
@@ -127,35 +129,49 @@ class Signup : AppCompatActivity() {
                         finish()
                         Toast.makeText(applicationContext, "Cuenta creada correctamente", Toast.LENGTH_LONG).show()
                     } else {
-                        Log.d("NOonResponse", response.toString())
+                        Log.d("NONOonResponse", response.toString())
                     }
                 }
             })
         }
-
     }
 
+    /**
+     * Función que muestra una lista de departamentos en un cuadro de diálogo.
+     * @param departamentos Lista de departamentos a mostrar.
+     * @param local Indica si la lista de departamentos es para seleccionar el departamento o la ciudad.
+     */
     fun mostrarListaDepartamentos(departamentos: MutableList<String>, local:Int) {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Selecciona una opción:")
 
+        // Se crea un adaptador para la lista de departamentos.
         val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, departamentos)
+
+        // Se establece el adaptador para el cuadro de diálogo y se define la acción a realizar cuando se selecciona un departamento.
         builder.setAdapter(adapter) { _, which ->
             val data = departamentos[which]
-            if (local == 1) {
-                binding.ciudadInputLayout.isEnabled = true
-                binding.autoCompleteTextView.setText(data)
-                binding.ciudadautoCompleteTextView.setText("")
-                department = data
-            }else if (local == 2) {
-                binding.ciudadautoCompleteTextView.setText(data)
-            }else {
+
+            // Se utiliza el parámetro "local" para determinar si la selección es para el departamento o la ciudad.
+            when (local) {
+                1 -> {
+                    binding.ciudadInputLayout.isEnabled = true
+                    binding.autoCompleteTextView.setText(data)
+                    binding.ciudadautoCompleteTextView.setText("")
+                    department = data
+                }
+                2 -> {
+                    binding.ciudadautoCompleteTextView.setText(data)
+                }
+                else -> {
+                    // No se realiza ninguna acción adicional si "local" no es ni 1 ni 2.
+                }
             }
         }
 
+        // Se muestra el cuadro de diálogo.
         builder.create().show()
     }
-
 
     private fun shared(myUID: String, state: Boolean) {
         val sharedPref =

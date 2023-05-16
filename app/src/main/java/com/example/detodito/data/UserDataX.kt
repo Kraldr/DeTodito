@@ -7,5 +7,8 @@ data class UserDataX(
     val firstName: String,
     val lastName: String,
     val phone: String,
-    val uid: String
+    val uid: String,
+    val dept: String,
+    val ciudad: String,
+    val type: String
 )
