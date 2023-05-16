@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "254514263517",
+    "firebase_url": "https://detodito-4752a-default-rtdb.firebaseio.com",
+    "project_id": "detodito-4752a",
+    "storage_bucket": "detodito-4752a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:254514263517:android:4e16ef7d3a83801d37f234",
+        "android_client_info": {
+          "package_name": "com.example.detodito"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "254514263517-337etigepoimrvttn016n7akohectopu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.detodito",
+            "certificate_hash": "6d81d3313c19d76d114be5c233b070ef804124b4"
+          }
+        },
+        {
+          "client_id": "254514263517-5eu3uvspus5nf8jas4utopc4mcukv0g2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCF9hhQyC66cozKZkVlH9NwB5BqeNeJsuw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "254514263517-5eu3uvspus5nf8jas4utopc4mcukv0g2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
