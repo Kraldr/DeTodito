@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:padding="16dp"
     android:gravity="center"
-    tools:context=".Login">
+    tools:context=".LoginAgent">
 
     <ImageView
         android:layout_width="200dp"
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Email">
+        android:hint="Email Agente">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/email_edittext"
@@ -87,14 +87,5 @@
             android:gravity="center"
             android:text="Olvide mi contraseña"/>
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/agent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:textSize="16dp"
-        android:gravity="center"
-        android:text="Ingreso Agente"/>
 
 </LinearLayout>
